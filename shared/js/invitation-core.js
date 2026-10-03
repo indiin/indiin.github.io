@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="text-xs text-wedding-muted">¿Deseas modificar tus pases o cancelar?</p>
           <a 
             href="${waDestino}" 
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-wedding-bg hover:bg-gold/15 text-wedding-text border border-wedding-border hover:border-gold rounded-full text-xs font-bold transition-all"
           >
             <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i> Contactar a los Novios
@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `https://wa.me/${INVITATION_CONFIG.telefonoWhatsApp}?text=${encodeURIComponent(message)}`
         : `https://wa.me/?text=${encodeURIComponent(message)}`;
 
-      window.open(waUrl, "_blank");
+      window.open(waUrl, "_blank", "noopener,noreferrer");
 
       // 4. Cambiar UI
       renderAsistenciaYaConfirmada();

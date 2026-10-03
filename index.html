@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>INDIIN — Invitaciones Digitales Interactivas para Eventos</title>
 
+  <!-- Content Security Policy (CSP) para prevenir inyecciones XSS -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; media-src 'self'; connect-src 'self'">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide Icons CDN (Versión Fija por Seguridad) -->
+  <script src="https://unpkg.com/lucide@0.344.0"></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -195,14 +198,14 @@
   <section id="eventos" class="py-24 px-4 sm:px-6 md:px-10 max-w-7xl mx-auto border-t border-white/5">
     <div class="mb-12">
       <span class="text-gold uppercase tracking-[0.25em] text-xs font-semibold block mb-2">Catálogo de Eventos</span>
-      <h2 class="text-3xl sm:text-5xl font-serif text-champagne">Modelos Disponibles</h2>
+      <h2 class="text-5xl sm:text-7xl font-script font-normal text-champagne py-2">Modelos Disponibles</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Modelo 1: Bodas -->
       <div class="pull-up group relative rounded-2xl overflow-hidden bg-[#111111] border border-white/5 hover:border-gold/40 transition-all duration-500 flex flex-col justify-between">
         <div class="relative h-64 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop" alt="Invitación para Boda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop" alt="Invitación para Boda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90">
         </div>
         <div class="p-6">
           <h3 class="font-serif text-2xl text-champagne mb-1">Bodas y Aniversarios</h3>
@@ -213,7 +216,7 @@
       <!-- Modelo 2: Cumpleaños y XV Años -->
       <div class="pull-up group relative rounded-2xl overflow-hidden bg-[#111111] border border-white/5 hover:border-gold/40 transition-all duration-500 flex flex-col justify-between">
         <div class="relative h-64 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1200&auto=format&fit=crop" alt="Invitación para XV Años y Cumpleaños" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1200&auto=format&fit=crop" alt="Invitación para XV Años y Cumpleaños" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90">
         </div>
         <div class="p-6">
           <h3 class="font-serif text-2xl text-champagne mb-1">XV Años y Cumpleaños</h3>
@@ -224,7 +227,7 @@
       <!-- Modelo 3: Graduaciones y Fiestas -->
       <div class="pull-up group relative rounded-2xl overflow-hidden bg-[#111111] border border-white/5 hover:border-gold/40 transition-all duration-500 flex flex-col justify-between">
         <div class="relative h-64 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Invitación para Fiestas Privadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Invitación para Fiestas Privadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90">
         </div>
         <div class="p-6">
           <h3 class="font-serif text-2xl text-champagne mb-1">Graduaciones y Fiestas</h3>
@@ -238,7 +241,7 @@
   <section id="paquetes" class="py-24 px-4 sm:px-6 md:px-10 max-w-5xl mx-auto border-t border-white/5">
     <div class="text-center max-w-2xl mx-auto mb-14">
       <span class="text-gold uppercase tracking-[0.25em] text-xs font-semibold block mb-2">Planes Claros & Demos Reales</span>
-      <h2 class="text-3xl sm:text-5xl font-serif text-champagne mb-4">Elige tu Paquete</h2>
+      <h2 class="text-5xl sm:text-7xl font-script font-normal text-champagne mb-6 py-2">Elige tu Paquete</h2>
       <p class="text-xs sm:text-sm text-[#9E9C94] font-light">
         Elige tu evento para comprobar las inclusiones fotográficas, temporizador y abrir la demo correspondiente.
       </p>
@@ -271,12 +274,12 @@
               <option value="fiesta">Graduaciones & Fiestas</option>
             </select>
             <!-- Lógica redirigida por JS a la carpeta /demos/ -->
-            <a href="#" target="_blank" class="package-demo-link p-2 bg-white/5 hover:bg-gold hover:text-black text-gold rounded-xl border border-white/10 flex items-center justify-center transition-colors" title="Abrir Demo">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="package-demo-link p-2 bg-white/5 hover:bg-gold hover:text-black text-gold rounded-xl border border-white/10 flex items-center justify-center transition-colors" title="Abrir Demo">
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
 
-          <a href="#" target="_blank" class="package-order-btn w-full py-2.5 rounded-full border border-white/10 hover:border-gold text-xs uppercase tracking-widest text-champagne hover:text-gold block text-center transition-all mt-2">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="package-order-btn w-full py-2.5 rounded-full border border-white/10 hover:border-gold text-xs uppercase tracking-widest text-champagne hover:text-gold block text-center transition-all mt-2">
             Contratar Esencial
           </a>
         </div>
@@ -308,12 +311,12 @@
               <option value="fiesta">Graduaciones & Fiestas</option>
             </select>
             <!-- Lógica redirigida por JS a la carpeta /demos/ -->
-            <a href="#" target="_blank" class="package-demo-link p-2 bg-white/5 hover:bg-gold hover:text-black text-gold rounded-xl border border-white/10 flex items-center justify-center transition-colors" title="Abrir Demo">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="package-demo-link p-2 bg-white/5 hover:bg-gold hover:text-black text-gold rounded-xl border border-white/10 flex items-center justify-center transition-colors" title="Abrir Demo">
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
 
-          <a href="#" target="_blank" class="package-order-btn w-full py-2.5 rounded-full border border-white/10 hover:border-gold text-xs uppercase tracking-widest text-champagne hover:text-gold block text-center transition-all mt-2">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="package-order-btn w-full py-2.5 rounded-full border border-white/10 hover:border-gold text-xs uppercase tracking-widest text-champagne hover:text-gold block text-center transition-all mt-2">
             Contratar Signature VIP
           </a>
         </div>
@@ -328,7 +331,7 @@
       <span class="text-[10px] uppercase tracking-widest text-gray-500">© 2026 INDIIN. Invitaciones Digitales Interactivas.</span>
     </div>
     <div class="flex gap-6 uppercase tracking-wider text-[10px]">
-      <a id="btnWhatsappFooter" href="#" target="_blank" class="hover:text-champagne transition-colors flex items-center gap-1">
+      <a id="btnWhatsappFooter" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-champagne transition-colors flex items-center gap-1">
         <i data-lucide="message-circle" class="w-3.5 h-3.5 text-gold"></i> Atención por WhatsApp
       </a>
     </div>

@@ -5,16 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joel & Diana — Nuestra Boda</title>
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Content Security Policy (Con soporte para Mapas y YouTube) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; media-src 'self'; frame-src 'self' https://www.google.com/maps/ https://open.spotify.com/ https://www.youtube.com/ ; connect-src 'self'">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@0.344.0"></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -59,7 +62,7 @@
         <div class="absolute -inset-2 rounded-full border-2 border-gold/40 animate-ping"></div>
       </button>
 
-      <h2 class="serif text-4xl sm:text-6xl italic text-wedding-text mb-2">Joel & Diana</h2>
+      <h2 class="script font-normal text-4xl sm:text-6xl  text-wedding-text mb-2">Joel & Diana</h2>
       <p class="text-sm sm:text-base text-wedding-muted mb-6 font-medium">Toca el sello para abrir la invitación</p>
 
       <div
@@ -98,7 +101,7 @@
     <!-- PORTADA NUPCIAL -->
     <header
       class="relative mt-12 h-[520px] sm:h-[560px] overflow-hidden flex flex-col justify-end p-6 sm:p-10 text-center">
-      <img src="img/portada.jpg" alt="Joel & Diana"
+      <img loading="lazy" src="img/portada.jpg" alt="Joel & Diana"
         class="hero-zoom absolute inset-0 w-full h-full object-cover filter brightness-[0.88] contrast-105" />
       <div class="absolute inset-0 bg-gradient-to-t from-wedding-surface via-black/15 to-transparent"></div>
 
@@ -106,7 +109,7 @@
         class="relative z-10 reveal bg-white/95 backdrop-blur-sm border border-wedding-border rounded-3xl p-6 sm:p-7 shadow-wedding-soft">
         <span class="text-gold-dark text-xs sm:text-base uppercase tracking-[0.35em] font-bold block mb-1.5">Nuestra
           Boda</span>
-        <h1 class="serif text-5xl sm:text-7xl italic text-wedding-text mb-2">Joel & Diana</h1>
+        <h1 class="script font-normal text-5xl sm:text-7xl  text-wedding-text mb-2">Joel & Diana</h1>
         <p class="text-sm sm:text-base text-wedding-muted font-normal italic leading-relaxed">"El amor no se mira con
           los ojos, sino con el alma."</p>
       </div>
@@ -282,19 +285,19 @@
       <div class="grid grid-cols-2 gap-3.5 sm:gap-5">
         <div
           class="reveal h-52 sm:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-wedding-border group shadow-card-soft">
-          <img src="img/foto1.jpg"
+          <img loading="lazy" src="img/foto1.jpg"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             alt="Foto Novios 1">
         </div>
         <div
           class="reveal delay-100 h-52 sm:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-wedding-border group shadow-card-soft">
-          <img src="img/foto2.jpg"
+          <img loading="lazy" src="img/foto2.jpg"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             alt="Foto Novios 2">
         </div>
         <div
           class="reveal col-span-2 h-64 sm:h-80 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-wedding-border group shadow-card-soft">
-          <img src="img/foto3.jpg"
+          <img loading="lazy" src="img/foto3.jpg"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             alt="Foto Novios 3">
         </div>
@@ -303,13 +306,13 @@
       <div id="galeria-vip-extra" class="grid grid-cols-2 gap-3.5 sm:gap-5 mt-3.5 sm:mt-5">
         <div
           class="reveal h-52 sm:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-wedding-border group shadow-card-soft">
-          <img src="img/foto4.jpg"
+          <img loading="lazy" src="img/foto4.jpg"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             alt="Foto Novios 4">
         </div>
         <div
           class="reveal delay-100 h-52 sm:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-wedding-border group shadow-card-soft">
-          <img src="img/foto5.jpg"
+          <img loading="lazy" src="img/foto5.jpg"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             alt="Foto Novios 5">
         </div>
@@ -348,7 +351,7 @@
           <strong class="text-wedding-text text-base sm:text-lg block mb-0.5">Catedral de San Marcos</strong>
           Av. Central Poniente #100, Centro, Tuxtla Gutiérrez.
         </p>
-        <a href="https://maps.google.com" target="_blank"
+        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"
           class="w-full py-3.5 bg-wedding-bg hover:bg-gold/15 text-wedding-text border-2 border-wedding-border hover:border-gold/50 rounded-2xl text-sm sm:text-base font-bold flex items-center justify-center gap-2 transition-all btn-interactive">
           <i data-lucide="map-pin" class="w-4 h-4 text-gold-dark"></i> Abrir en Google Maps
         </a>
@@ -372,7 +375,7 @@
           <strong class="text-wedding-text text-base sm:text-lg block mb-0.5">Hacienda San José</strong>
           Carretera Panamericana Km 1080, Tuxtla Gutiérrez.
         </p>
-        <a href="https://maps.google.com" target="_blank"
+        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"
           class="w-full py-3.5 bg-wedding-bg hover:bg-gold/15 text-wedding-text border-2 border-wedding-border hover:border-gold/50 rounded-2xl text-sm sm:text-base font-bold flex items-center justify-center gap-2 transition-all btn-interactive">
           <i data-lucide="map-pin" class="w-4 h-4 text-gold-dark"></i> Abrir en Google Maps
         </a>
@@ -652,7 +655,7 @@
       </div>
 
       <div class="space-y-4 max-w-md mx-auto">
-        <a href="https://www.liverpool.com.mx" target="_blank"
+        <a href="https://www.liverpool.com.mx" target="_blank" rel="noopener noreferrer"
           class="reveal flex justify-between items-center p-5 bg-white border-2 border-wedding-border hover:border-gold/60 rounded-3xl transition-all text-sm sm:text-base btn-interactive shadow-card-soft">
           <div class="flex items-center gap-3.5">
             <div class="w-11 h-11 rounded-2xl bg-gold/10 text-gold-dark flex items-center justify-center shrink-0">

@@ -27,6 +27,7 @@ tailwind.config = {
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', "sans-serif"],
         serif: ['"Cormorant Garamond"', "serif"],
+        script: ['"Great Vibes"', "cursive"],
       },
       boxShadow: {
         "wedding-soft": "0 10px 35px -5px rgba(184, 147, 74, 0.15)",

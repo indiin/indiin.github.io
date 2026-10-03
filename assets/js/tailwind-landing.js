@@ -22,6 +22,7 @@ tailwind.config = {
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', "sans-serif"],
         serif: ['"Cormorant Garamond"', "serif"],
+        script: ['"Great Vibes"', "cursive"],
       },
       boxShadow: {
         "gold-glow": "0 0 35px -5px rgba(212, 175, 55, 0.25)",
