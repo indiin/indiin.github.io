@@ -27,17 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Diccionario dinámico con redacción y rutas apuntando a la carpeta /demos/
   const packageSpecs = {
     boda: {
-      demoFile: "demos/demo-boda.html", // Ruta actualizada
+      demoFile: "demos/demo-boda.html",
       label: "Boda o Aniversario",
       esencial: [
-        { text: "Sobre virtual animado con monograma de novios", active: true },
+        { text: "Sobre virtual animado con monograma de novios y música interactiva", active: true },
         {
-          text: "Mensaje de Novios: Frase o dedicatoria inicial emotiva",
+          text: "Mensaje de Novios: Dedicatoria o frase inicial emotiva",
           active: true,
           strong: true,
         },
         {
-          text: "Nuestros Padres: Mención y bendición de los padres de los novios",
+          text: "Nuestros Padres: Sección de bendición y mención familiar",
           active: true,
           strong: true,
         },
@@ -47,7 +47,27 @@ document.addEventListener("DOMContentLoaded", () => {
           strong: true,
         },
         {
-          text: "Galería de fotos: Hasta 3 fotografías de la pareja",
+          text: "Ubicaciones GPS para Ceremonia y Recepción con Google Maps",
+          active: true,
+        },
+        {
+          text: "Código de vestimenta con siluetas ilustradas y paleta de colores",
+          active: true,
+        },
+        {
+          text: "Mesa de regalos (Liverpool, Amazon y cuenta bancaria CLABE)",
+          active: true,
+        },
+        {
+          text: "Galería fotográfica: Álbum esencial (hasta 3 fotografías)",
+          active: true,
+        },
+        {
+          text: "Confirmación directa por WhatsApp (pase individual)",
+          active: true,
+        },
+        {
+          text: "Privacidad total: Protección anti-buscadores (No indexado en Google)",
           active: true,
         },
         {
@@ -55,23 +75,19 @@ document.addEventListener("DOMContentLoaded", () => {
           active: true,
         },
         {
-          text: "Canción romántica de fondo con reproductor interactivo",
-          active: true,
-        },
-        {
-          text: "Ubicación GPS interactiva (Google Maps, Waze y Uber)",
-          active: true,
-        },
-        {
-          text: "Mesa de regalos (Liverpool, Amazon y cuenta CLABE)",
-          active: true,
-        },
-        {
-          text: "Sin Corte de Honor (Padrinos de velación, anillos, arras y lazo)",
+          text: "Sin boletos con asignación personalizada de pases",
           active: false,
         },
         {
-          text: "Sin itinerario por fases ni hospedaje recomendado para foráneos",
+          text: "Sin sincronización automática con Google Sheets",
+          active: false,
+        },
+        {
+          text: "Sin itinerario cronológico por fases ni corte de honor/padrinos",
+          active: false,
+        },
+        {
+          text: "Sin hospedaje recomendado para invitados foráneos",
           active: false,
         },
       ],
@@ -82,59 +98,66 @@ document.addEventListener("DOMContentLoaded", () => {
           strong: true,
         },
         {
-          text: "Mensaje de Novios: Carta de bienvenida extendida con firma digital",
+          text: "Boleto digital personalizado con asignación de pases reservados",
           active: true,
           strong: true,
         },
         {
-          text: "Nuestros Padres: Sección destacada con bendición y agradecimiento",
+          text: "Enlaces personalizados por invitado (?invitado=...&pases=...)",
           active: true,
           strong: true,
         },
         {
-          text: "Galería de fotos: Hasta 10 fotografías en alta resolución",
+          text: "Conexión a Base de Datos en Google Sheets (registro silencioso en vivo)",
           active: true,
           strong: true,
         },
         {
-          text: "Vigencia web: Invitación activa durante 12 meses (1 año completo)",
+          text: "Itinerario cronológico detallado por fases (misa, cóctel, banquete y baile)",
           active: true,
           strong: true,
         },
         {
-          text: "Corte de Honor completa (Padrinos de velación, anillos, arras y lazo)",
+          text: "Corte de Honor & Padrinos completa (velación, anillos, arras, lazo y ramo)",
+          active: true,
+          strong: true,
+        },
+        {
+          text: "Recomendación de hoteles",
           active: true,
         },
         {
-          text: "Itinerario cronológico por bloques (misa, cóctel, banquete y baile)",
+          text: "Módulo exclusivo 'Solo Adultos / No Niños' (diseño cordial)",
           active: true,
         },
         {
-          text: "Hoteles recomendados con tarifas especiales para invitados",
+          text: "Galería fotográfica VIP extendida (Álbum completo en alta resolución)",
+          active: true,
+          strong: true,
+        },
+        {
+          text: "Mensaje de Novios extendido: Carta de bienvenida con firma digital",
           active: true,
         },
         {
-          text: "Formulario con conteo de pases (1, 2 o más) directo a WhatsApp",
+          text: "Vigencia web: Invitación online activa hasta por 6 meses",
           active: true,
-        },
-        {
-          text: "Entrega prioritaria y cambios de datos ilimitados",
-          active: true,
+          strong: true,
         },
       ],
     },
     xv: {
-      demoFile: "demos/demo-xv.html", // Ruta actualizada
+      demoFile: "demos/demo-xv.html",
       label: "XV Años o Cumpleaños",
       esencial: [
-        { text: "Sobre virtual con corona táctil animada", active: true },
+        { text: "Sobre virtual con corona táctil animada y música ambiental", active: true },
         {
           text: "Mensaje de la Quinceañera: Frase emotiva de bienvenida",
           active: true,
           strong: true,
         },
         {
-          text: "Mis Padres: Sección especial de agradecimiento y bendición de los papás",
+          text: "Mis Padres: Sección especial de agradecimiento y bendición",
           active: true,
           strong: true,
         },
@@ -144,7 +167,27 @@ document.addEventListener("DOMContentLoaded", () => {
           strong: true,
         },
         {
-          text: "Galería de fotos: Hasta 3 fotografías de la sesión previa",
+          text: "Ubicaciones GPS interactivas (Misa y Salón con Google Maps)",
+          active: true,
+        },
+        {
+          text: "Dress Code y paleta sugerida de vestimenta",
+          active: true,
+        },
+        {
+          text: "Mesa de regalos (Wishlist de Amazon o lluvia de sobres)",
+          active: true,
+        },
+        {
+          text: "Galería fotográfica: Álbum esencial (hasta 3 fotografías de estudio)",
+          active: true,
+        },
+        {
+          text: "Confirmación de asistencia directa a WhatsApp",
+          active: true,
+        },
+        {
+          text: "Privacidad total: No indexado en buscadores (No-Index)",
           active: true,
         },
         {
@@ -152,20 +195,15 @@ document.addEventListener("DOMContentLoaded", () => {
           active: true,
         },
         {
-          text: "Canción pop/fiesta preferida con ecualizador animado",
-          active: true,
+          text: "Sin boletos con asignación personalizada de pases por familia",
+          active: false,
         },
         {
-          text: "Ubicación GPS, mapa interactivo y sugerencia de dress code",
-          active: true,
+          text: "Sin sincronización con base de datos en Google Sheets",
+          active: false,
         },
         {
-          text: "Mesa de regalos (Wishlist de Amazon o lluvia de sobres)",
-          active: true,
-        },
-        { text: "Sin sección de padrinos emblemáticos", active: false },
-        {
-          text: "Sin itinerario detallado de la fiesta ni selección de pases",
+          text: "Sin programa / itinerario cronológico de la fiesta ni padrinos",
           active: false,
         },
       ],
@@ -176,53 +214,56 @@ document.addEventListener("DOMContentLoaded", () => {
           strong: true,
         },
         {
-          text: "Mensaje de la Quinceañera: Carta con dedicatoria a amigos y familia",
+          text: "Boleto digital personalizado con conteo de pases para la familia",
           active: true,
           strong: true,
         },
         {
-          text: "Mis Padrinos: Sección con padrinos de vestido, brindis, cojín y regalo sorpresa",
+          text: "Enlaces personalizados por invitado (?invitado=...&pases=...)",
           active: true,
           strong: true,
         },
         {
-          text: "Galería de fotos: Hasta 10 fotografías de estudio/sesión previa",
+          text: "Conexión a Base de Datos en Google Sheets (control de asistencia en vivo)",
           active: true,
           strong: true,
         },
         {
-          text: "Vigencia web: Invitación activa durante 12 meses (1 año completo)",
+          text: "El Programa / Itinerario de la noche (recepción, vals, brindis y DJ)",
           active: true,
           strong: true,
         },
         {
-          text: "Itinerario detallado de la fiesta (recepción, vals, brindis y DJ set)",
+          text: "Mis Padrinos Emblemáticos (vestido, brindis, cojín, muñeca y sorpresa)",
+          active: true,
+          strong: true,
+        },
+        {
+          text: "Galería fotográfica VIP extendida (Álbum completo en alta resolución)",
+          active: true,
+          strong: true,
+        },
+        {
+          text: "Mensaje de Quinceañera extendido con dedicatoria a familiares",
           active: true,
         },
         {
-          text: "Formulario de confirmación con selección de pases a WhatsApp",
+          text: "Vigencia web: Invitación online activa hasta por 6 meses",
           active: true,
-        },
-        {
-          text: "Efectos de destello neón y tipografía personalizada",
-          active: true,
-        },
-        {
-          text: "Entrega exprés en 24 horas y soporte prioritario",
-          active: true,
+          strong: true,
         },
       ],
     },
     fiesta: {
-      demoFile: "demos/demo-fiesta.html", // Ruta actualizada
+      demoFile: "demos/demo-fiesta.html",
       label: "Graduación o Fiesta",
       esencial: [
         {
-          text: "Sobre virtual interactivo con apertura animada",
+          text: "Sobre virtual interactivo con apertura táctil y música festiva",
           active: true,
         },
         {
-          text: "Mensaje de Graduados: Dedicatoria o frase conmemorativa de generación",
+          text: "Mensaje de Graduados: Lema o dedicatoria de generación",
           active: true,
           strong: true,
         },
@@ -232,7 +273,20 @@ document.addEventListener("DOMContentLoaded", () => {
           strong: true,
         },
         {
-          text: "Galería de fotos: Hasta 3 fotografías de la generación o festejo",
+          text: "Ubicación GPS con Google Maps y acceso al salón",
+          active: true,
+        },
+        {
+          text: "Código de vestimenta formal / Black Tie",
+          active: true,
+        },
+        {
+          text: "Galería de recuerdos esencial (hasta 3 fotografías)",
+          active: true,
+        },
+        { text: "Aviso y confirmación simple de asistencia directo a WhatsApp", active: true },
+        {
+          text: "Privacidad total: No indexado en Google (No-Index)",
           active: true,
         },
         {
@@ -240,20 +294,15 @@ document.addEventListener("DOMContentLoaded", () => {
           active: true,
         },
         {
-          text: "Música ambiental festiva con reproductor interactivo",
-          active: true,
-        },
-        {
-          text: "Ubicación GPS, indicaciones de Valet Parking y dress code",
-          active: true,
-        },
-        { text: "Aviso simple de asistencia directo a WhatsApp", active: true },
-        {
-          text: "Sin itinerario detallado por fases de la noche",
+          text: "Sin desglose estructurado de pases por acompañante",
           active: false,
         },
         {
-          text: "Sin selector con desglose estructurado de pases",
+          text: "Sin registro automático en Google Sheets",
+          active: false,
+        },
+        {
+          text: "Sin cronograma detallado por fases de la noche",
           active: false,
         },
       ],
@@ -264,31 +313,38 @@ document.addEventListener("DOMContentLoaded", () => {
           strong: true,
         },
         {
-          text: "Mensaje de Graduados: Discurso y reseña generacional completa",
+          text: "Boleto de acceso personalizado con asignación de acompañantes",
           active: true,
           strong: true,
         },
         {
-          text: "Galería de fotos: Hasta 10 fotografías de recuerdo de la generación",
+          text: "Personalización por enlace para cada graduado (?invitado=...&pases=...)",
           active: true,
           strong: true,
         },
         {
-          text: "Vigencia web: Invitación activa durante 12 meses (1 año completo)",
+          text: "Conexión a Base de Datos en Google Sheets (control de accesos en vivo)",
           active: true,
           strong: true,
         },
         {
-          text: "Cronograma completo de la noche (recepción, cena, brindis y after)",
+          text: "Cronograma completo de la noche (alfombra roja, cena, brindis y after)",
+          active: true,
+          strong: true,
+        },
+        {
+          text: "Galería de recuerdos VIP extendida (Álbum generacional completo)",
+          active: true,
+          strong: true,
+        },
+        {
+          text: "Mensaje y reseña generacional completa con agradecimientos",
           active: true,
         },
         {
-          text: "Formulario de registro con conteo de acompañantes directo a WhatsApp",
+          text: "Vigencia web: Invitación online activa hasta por 6 meses",
           active: true,
-        },
-        {
-          text: "Entrega prioritaria y soporte personalizado para ajustes",
-          active: true,
+          strong: true,
         },
       ],
     },
@@ -337,9 +393,12 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
 
     // B. Parámetros de URL
-    const demoPlanParam = tier === "esencial" ? "esencial" : "vip";
+    const demoQuery =
+      tier === "signature"
+        ? "?plan=vip&invitado=Familia+Ramírez&pases=2"
+        : "?plan=esencial";
     const demoLink = card.querySelector(".package-demo-link");
-    demoLink.href = `${spec.demoFile}?plan=${demoPlanParam}`;
+    demoLink.href = `${spec.demoFile}${demoQuery}`;
 
     // C. Mensaje de WhatsApp
     const orderBtn = card.querySelector(".package-order-btn");
