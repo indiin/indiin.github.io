@@ -249,7 +249,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
       <!-- PAQUETE 1: ESENCIAL -->
-      <div class="pull-up package-card bg-[#111111] border border-white/5 hover:border-gold hover:shadow-gold-glow rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300" data-tier="esencial">
+      <div class="pull-up package-card bg-[#111111] border border-white/5 hover:border-gold/40 rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300" data-tier="esencial">
         <div>
           <span class="text-xs text-gray-400 uppercase tracking-widest font-mono block mb-1">Esencial & Dinámico</span>
           <h3 class="font-serif text-2xl text-champagne mb-2">Esencial</h3>
@@ -257,7 +257,7 @@
 
           <div class="mb-6 pb-6 border-b border-white/5">
             <span class="text-xs text-gray-400">Pago único</span>
-            <div class="text-3xl font-serif text-champagne font-bold mt-1">$650 <span class="text-xs font-sans font-normal text-gray-400">MXN</span></div>
+            <div class="text-3xl font-serif text-champagne font-bold mt-1">$790 <span class="text-xs font-sans font-normal text-gray-400">MXN</span></div>
           </div>
 
           <ul class="features-list space-y-3 text-xs text-[#9E9C94] mb-8">
@@ -279,22 +279,33 @@
             </a>
           </div>
 
-          <a href="#" target="_blank" rel="noopener noreferrer" class="package-order-btn w-full py-2.5 rounded-full border border-white/10 hover:border-gold text-xs uppercase tracking-widest text-champagne hover:text-gold block text-center transition-all mt-2">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="package-order-btn w-full py-3 rounded-full border border-white/10 hover:border-gold text-xs uppercase tracking-widest text-champagne hover:text-gold block text-center transition-all mt-2">
             Contratar Esencial
           </a>
         </div>
       </div>
 
       <!-- PAQUETE 2: SIGNATURE VIP -->
-      <div class="pull-up package-card bg-[#111111] border border-white/5 hover:border-gold hover:shadow-gold-glow rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300" data-tier="signature">
-        <div>
-          <span class="text-xs text-gold uppercase tracking-widest font-mono block mb-1">Experiencia All-Inclusive</span>
-          <h3 class="font-serif text-2xl text-champagne mb-2">Signature VIP</h3>
+      <div class="pull-up package-card relative overflow-hidden bg-gradient-to-b from-[#19160F] via-[#12110E] to-[#0D0D0D] border border-gold/45 hover:border-gold shadow-gold-glow hover:shadow-gold-glow-lg rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300" data-tier="signature">
+        <!-- Destello ambiental y línea superior dorada de lujo -->
+        <div class="absolute -top-24 -right-24 w-56 h-56 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-gold/80 to-transparent"></div>
+
+        <div class="relative z-10">
+          <div class="flex items-start justify-between gap-3 mb-2">
+            <div>
+              <span class="text-xs text-gold uppercase tracking-widest font-mono block mb-1">Experiencia All-Inclusive</span>
+              <h3 class="font-serif text-2xl sm:text-3xl text-champagne">Signature VIP</h3>
+            </div>
+            <div class="w-10 h-10 rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold shrink-0 shadow-gold-glow">
+              <i data-lucide="crown" class="w-5 h-5"></i>
+            </div>
+          </div>
           <p class="tier-desc text-xs text-[#9E9C94] mb-6 leading-relaxed">La experiencia all-inclusive definitiva: boletos personalizados por invitado, registro en Google Sheets, itinerario por fases, corte de padrinos y hasta 6 meses online.</p>
 
-          <div class="mb-6 pb-6 border-b border-white/5">
-            <span class="text-xs text-gray-400">Pago único</span>
-            <div class="text-3xl font-serif text-gold font-bold mt-1">$1,190 <span class="text-xs font-sans font-normal text-gray-400">MXN</span></div>
+          <div class="mb-6 pb-6 border-b border-gold/15">
+            <span class="text-xs text-gold/80">Pago único</span>
+            <div class="text-3xl sm:text-4xl font-serif text-gold font-bold mt-1">$1,490 <span class="text-xs font-sans font-normal text-gray-400">MXN</span></div>
           </div>
 
           <ul class="features-list space-y-3 text-xs text-[#9E9C94] mb-8">
@@ -302,21 +313,21 @@
           </ul>
         </div>
 
-        <div class="pt-6 border-t border-white/5 space-y-3">
-          <label class="block text-[10px] uppercase tracking-wider text-gray-400 font-mono">Tipo de evento:</label>
+        <div class="relative z-10 pt-6 border-t border-gold/15 space-y-3">
+          <label class="block text-[10px] uppercase tracking-wider text-gold/80 font-mono">Tipo de evento:</label>
           <div class="flex gap-2">
-            <select class="package-select bg-[#1a1a1a] border border-white/10 rounded-xl px-3 py-2 text-xs text-champagne focus:border-gold outline-none flex-1">
+            <select class="package-select bg-[#1a1814] border border-gold/25 rounded-xl px-3 py-2 text-xs text-champagne focus:border-gold outline-none flex-1">
               <option value="boda">Bodas & Aniversarios</option>
               <option value="xv">XV Años & Cumpleaños</option>
               <option value="fiesta">Graduaciones & Fiestas</option>
             </select>
             <!-- Lógica redirigida por JS a la carpeta /demos/ -->
-            <a href="#" target="_blank" rel="noopener noreferrer" class="package-demo-link p-2 bg-white/5 hover:bg-gold hover:text-black text-gold rounded-xl border border-white/10 flex items-center justify-center transition-colors" title="Abrir Demo">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="package-demo-link p-2 bg-gold/10 hover:bg-gold hover:text-black text-gold rounded-xl border border-gold/30 flex items-center justify-center transition-colors" title="Abrir Demo VIP">
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
 
-          <a href="#" target="_blank" rel="noopener noreferrer" class="package-order-btn w-full py-2.5 rounded-full border border-white/10 hover:border-gold text-xs uppercase tracking-widest text-champagne hover:text-gold block text-center transition-all mt-2">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="package-order-btn w-full py-3 rounded-full bg-gradient-to-r from-gold-dark via-gold to-gold-light hover:brightness-110 text-xs uppercase tracking-widest text-black font-bold block text-center transition-all mt-2 shadow-gold-glow">
             Contratar Signature VIP
           </a>
         </div>

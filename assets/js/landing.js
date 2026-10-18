@@ -403,8 +403,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // C. Mensaje de WhatsApp
     const orderBtn = card.querySelector(".package-order-btn");
     const tierNames = {
-      esencial: "Esencial ($650 MXN)",
-      signature: "Signature VIP ($1,190 MXN)",
+      esencial: "Esencial ($790 MXN)",
+      signature: "Signature VIP ($1,490 MXN)",
     };
     const msg = `Hola INDIIN, me interesa contratar el Paquete ${tierNames[tier]} para mi evento de ${spec.label}.`;
     orderBtn.href = `https://wa.me/${WHATSAPP_CONFIG.telefono}?text=${encodeURIComponent(msg)}`;
