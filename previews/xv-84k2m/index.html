@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis XV Años — Britany Altair</title>
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Content Security Policy (Con soporte para Mapas y YouTube) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; media-src 'self'; frame-src 'self' https://www.google.com/maps/ https://open.spotify.com/ https://www.youtube.com/ ; connect-src 'self'">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@0.344.0"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Motor Compartido -->
+  <script src="../../shared/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../../shared/css/invitation-base.css" />
+
+  <!-- Animación Exclusiva de XV Años -->
+  <style>
+    @keyframes floatingCrown {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-6px) rotate(2deg);
+      }
+    }
+
+    .floating-crown {
+      animation: floatingCrown 3s ease-in-out infinite;
+    }
+
+    /* Marca de agua de protección (INDIIN - VISTA PREVIA) */
+    .preview-watermark-container {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .preview-watermark-pattern {
+      position: absolute;
+      inset: -60%;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-around;
+      justify-content: space-around;
+      gap: 3.5rem 4.5rem;
+      transform: rotate(-30deg);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .preview-watermark-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1rem, 2.2vw, 1.45rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #1A0D06;
+      text-shadow:
+        -1px -1px 0 rgba(255, 255, 255, 0.95),
+         1px -1px 0 rgba(255, 255, 255, 0.95),
+        -1px  1px 0 rgba(255, 255, 255, 0.95),
+         1px  1px 0 rgba(255, 255, 255, 0.95),
+         0px  0px 8px rgba(255, 255, 255, 0.9);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-[#FAF5EE] text-[#2B140A] antialiased selection:bg-amber-300/40 selection:text-[#2B140A] text-base overflow-x-hidden">
+
+  <!-- Pista de audio local para XV Años (Pendiente canción definitiva del cliente) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="audio/Ed Sheeran - Thinking out Loud.mp3" type="audio/mp3" />
+  </audio>
+
+  <!-- ========================================== -->
+  <!-- 1. PANTALLA INICIAL: SOBRE DE ACCESO       -->
+  <!-- ========================================== -->
+  <div id="envelopeScreen"
+    class="fixed inset-0 z-50 bg-[#F3E9DC] flex flex-col items-center justify-center p-6 text-center transition-all duration-700">
+    <div
+      class="max-w-lg w-full bg-[#FFFDF9] border-2 border-amber-400/80 rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col items-center relative overflow-hidden">
+
+      <div class="absolute -top-12 -right-12 w-56 h-56 bg-amber-400/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -left-12 w-56 h-56 bg-orange-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div
+        class="mb-4 text-sm font-bold text-orange-700 uppercase tracking-[0.25em] bg-amber-100/80 px-5 py-2 rounded-full border border-amber-400">
+        B A
+      </div>
+
+      <span class="text-sm uppercase tracking-[0.35em] text-[#7C4A27] mb-2 font-semibold">Pase Exclusivo</span>
+      <h2 class="script font-normal text-5xl sm:text-6xl text-[#2B140A] mb-2">Mis XV Años</h2>
+      <p class="text-base text-orange-600 font-bold tracking-widest uppercase mb-4">Britany Altair</p>
+
+      <!-- Corona táctil interactiva (Degradado Amarillo Sol -> Naranja -> Detalles Café) -->
+      <button id="unsealBtn" class="relative my-7 group cursor-pointer btn-interactive">
+        <div
+          class="w-28 h-28 rounded-full bg-gradient-to-br from-amber-300 via-amber-400 to-orange-500 flex items-center justify-center text-[#2B140A] font-bold text-3xl shadow-[0_0_35px_-5px_rgba(234,88,12,0.45)] group-hover:scale-105 transition-transform border-2 border-white">
+          <i data-lucide="crown" class="w-14 h-14 text-[#2B140A] floating-crown"></i>
+        </div>
+        <div class="absolute -inset-2.5 rounded-full border-2 border-orange-400/50 animate-ping"></div>
+      </button>
+
+      <p class="text-base text-[#5C3A21] mb-6 font-medium">Toca la corona para abrir tu invitación</p>
+
+      <div
+        class="flex items-center gap-2.5 text-base sm:text-lg text-[#2B140A] bg-amber-100/80 border border-amber-400 px-6 py-2.5 rounded-full font-bold">
+        <i data-lucide="calendar" class="w-5 h-5 text-orange-600"></i>
+        <span>Viernes, 8 de Enero de 2027</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 2. INVITACIÓN REAL COMPLETA                -->
+  <!-- ========================================== -->
+  <main id="invitationContent"
+    class="hidden min-h-screen max-w-xl mx-auto bg-[#FFFDF9] border-x border-amber-200/80 relative pb-32 shadow-2xl">
+
+    <!-- BARRA DE MÚSICA FLOTANTE -->
+    <div id="feature-audio"
+      class="fixed top-0 inset-x-0 max-w-xl mx-auto z-40 bg-[#FFFDF9]/95 backdrop-blur-md px-6 py-4 flex justify-between items-center border-b border-amber-300/70 shadow-sm transition-all duration-300">
+      <div class="flex items-center gap-3">
+        <div class="w-3 h-3 rounded-full bg-orange-500 animate-pulse"></div>
+        <!-- TODO: Cambiar por el nombre de la canción cuando el cliente la envíe -->
+        <span class="text-sm sm:text-base text-[#2B140A] serif italic font-bold">Mis XV — Britany Altair</span>
+      </div>
+      <button id="toggleMusicBtn"
+        class="flex items-center gap-2 text-sm sm:text-base text-orange-700 font-bold btn-interactive bg-amber-100/80 hover:bg-amber-200/70 px-4 py-2 rounded-full border border-amber-400">
+        <div class="flex items-end gap-1 h-4">
+          <div class="w-0.5 bg-orange-600 rounded-full sound-bar" style="animation-delay: 0.1s;"></div>
+          <div class="w-0.5 bg-amber-500 rounded-full sound-bar" style="animation-delay: 0.3s;"></div>
+          <div class="w-0.5 bg-orange-600 rounded-full sound-bar" style="animation-delay: 0.2s;"></div>
+        </div>
+        <span id="musicStatusText" class="text-xs sm:text-sm uppercase tracking-wider">Sonando</span>
+      </button>
+    </div>
+
+    <!-- PORTADA CON ZOOM CINEMÁTICO -->
+    <header class="relative mt-14 h-[650px] sm:h-[680px] overflow-hidden flex flex-col justify-end p-6 sm:p-10 text-center">
+      <!-- Fotografía de portada encuadrada en la parte superior para lucir su rostro completo -->
+      <div class="absolute inset-x-0 top-0 h-[78%] sm:h-[80%] overflow-hidden">
+        <img loading="lazy"
+          src="img/_DSC2374.jpg"
+          alt="Britany Altair XV"
+          class="hero-zoom w-full h-full object-cover object-[50%_32%] filter brightness-[0.97] contrast-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#FFFDF9] via-[#FFFDF9]/15 to-black/10"></div>
+      </div>
+
+      <div class="relative z-10 reveal bg-[#FFFDF9]/95 backdrop-blur-sm border-2 border-amber-400/80 rounded-3xl p-6 sm:p-7 shadow-[0_10px_35px_-5px_rgba(217,119,6,0.28)]">
+        <div class="inline-flex items-center gap-2 bg-amber-100 border border-amber-400 px-4 py-1.5 rounded-full text-xs font-bold text-orange-700 uppercase tracking-widest mb-3">
+          <i data-lucide="sparkles" class="w-4 h-4 text-orange-600"></i> Acompáñame a festejar
+        </div>
+        <h1 class="script font-normal text-6xl sm:text-7xl text-[#2B140A] mb-2 drop-shadow-[0_2px_12px_rgba(245,158,11,0.25)]">
+          Britany Altair</h1>
+        <p class="text-base sm:text-lg text-orange-700 font-bold tracking-widest uppercase">Mis XV</p>
+      </div>
+    </header>
+
+    <!-- FECHA DEL EVENTO -->
+    <section class="p-8 sm:p-10 text-center">
+      <!-- SEPARADOR PROTAGONISTA: CORONA REAL Y MEDALLÓN ÁMBAR / NARANJA / CAFÉ -->
+      <div class="relative flex items-center justify-center my-6">
+        <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/70 to-orange-600"></div>
+        <div class="mx-4 relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-400/30 rounded-full blur-md"></div>
+          <div
+            class="relative px-5 py-2.5 bg-white border-2 border-amber-500 rounded-full shadow-[0_0_25px_-5px_rgba(234,88,12,0.3)] flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+            <i data-lucide="crown" class="w-7 h-7 text-orange-600"></i>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+          </div>
+        </div>
+        <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent via-amber-500/70 to-orange-600"></div>
+      </div>
+
+      <div class="reveal max-w-md mx-auto bg-white border-2 border-amber-300/80 rounded-3xl p-8 shadow-[0_6px_24px_-4px_rgba(120,53,15,0.1)]">
+        <span class="text-sm uppercase tracking-[0.3em] text-orange-700 font-extrabold block mb-4">La Gran Noche</span>
+        <div class="flex items-center justify-center gap-4 my-3">
+          <span class="text-3xl font-serif italic text-orange-600 font-semibold">Viernes</span>
+          <span class="serif text-7xl font-bold text-[#2B140A] border-x-2 border-amber-300 px-5">08</span>
+          <span class="text-3xl font-serif italic text-orange-600 font-semibold">Enero</span>
+        </div>
+        <p class="serif text-4xl font-bold text-[#2B140A] mt-3">2027</p>
+        <div
+          class="mt-6 pt-4 border-t border-amber-200/80 flex items-center justify-center gap-2 text-base text-[#5C3A21] font-semibold">
+          <i data-lucide="map-pin" class="w-5 h-5 text-orange-600"></i>
+          <span>Tuxtla Gutiérrez, Chiapas.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENSAJE DE LA QUINCEAÑERA -->
+    <section class="p-8 sm:p-10 text-center bg-[#FDF3E3]/75">
+      <!-- SEPARADOR PROTAGONISTA -->
+      <div class="relative flex items-center justify-center mb-8">
+        <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/70 to-orange-600"></div>
+        <div class="mx-4 relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-400/30 rounded-full blur-md"></div>
+          <div
+            class="relative px-5 py-2.5 bg-white border-2 border-amber-500 rounded-full shadow-[0_0_25px_-5px_rgba(234,88,12,0.3)] flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+            <i data-lucide="crown" class="w-7 h-7 text-orange-600"></i>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+          </div>
+        </div>
+        <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent via-amber-500/70 to-orange-600"></div>
+      </div>
+
+      <div class="reveal max-w-lg mx-auto">
+        <div
+          class="w-14 h-14 rounded-full bg-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-4 border border-amber-400">
+          <i data-lucide="quote" class="w-7 h-7"></i>
+        </div>
+        <span class="text-sm text-orange-700 uppercase tracking-[0.3em] font-bold block mb-4">Palabras de Britany Altair</span>
+
+        <!-- Versión Esencial -->
+        <div id="mensaje-esencial">
+          <p class="serif text-2xl sm:text-3xl italic text-[#2B140A] leading-relaxed">
+            "Hoy comienzo una nueva etapa llena de sueños e ilusiones, y no hay mejor regalo que festejarlo con quienes
+            más quiero."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: NUESTROS PADRES -->
+    <section class="p-8 sm:p-10 text-center">
+      <!-- SEPARADOR PROTAGONISTA -->
+      <div class="relative flex items-center justify-center mb-8">
+        <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/70 to-orange-600"></div>
+        <div class="mx-4 relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-400/30 rounded-full blur-md"></div>
+          <div
+            class="relative px-5 py-2.5 bg-white border-2 border-amber-500 rounded-full shadow-[0_0_25px_-5px_rgba(234,88,12,0.3)] flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+            <i data-lucide="crown" class="w-7 h-7 text-orange-600"></i>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+          </div>
+        </div>
+        <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent via-amber-500/70 to-orange-600"></div>
+      </div>
+
+      <div class="reveal max-w-xl mx-auto">
+        <div
+          class="w-14 h-14 rounded-full bg-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-4 border border-amber-400">
+          <i data-lucide="heart" class="w-7 h-7"></i>
+        </div>
+        <span class="text-sm text-orange-700 uppercase tracking-[0.25em] font-bold block mb-2">Con la bendición y amor
+          de</span>
+        <h3 class="serif text-4xl sm:text-5xl italic text-[#2B140A] mb-6">Mis Padres</h3>
+
+        <div class="bg-white border-2 border-amber-300/80 rounded-3xl p-6 sm:p-8 text-center shadow-[0_6px_24px_-4px_rgba(120,53,15,0.1)]">
+          <div
+            class="w-12 h-12 rounded-full bg-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-3 border border-amber-300">
+            <i data-lucide="users" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs sm:text-sm uppercase tracking-widest text-orange-700 block font-mono font-bold mb-2">Mis
+            Amados Padres</span>
+          <p class="font-bold text-xl sm:text-2xl text-[#2B140A]">Héctor Daniel Anzueto Argüello</p>
+          <p class="text-lg sm:text-xl text-[#5C3A21] font-medium mt-1">& Ana Karen Guillén Hernández</p>
+          <p class="text-sm sm:text-base text-[#7C5236] italic mt-4 font-serif">"Gracias por darme la vida, guiar mis
+            pasos y hacer este sueño realidad."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUENTA REGRESIVA DINÁMICA REAL -->
+    <section class="reveal p-8 sm:p-10 text-center bg-[#FDF3E3]/75">
+      <!-- SEPARADOR PROTAGONISTA -->
+      <div class="relative flex items-center justify-center mb-8">
+        <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/70 to-orange-600"></div>
+        <div class="mx-4 relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-400/30 rounded-full blur-md"></div>
+          <div
+            class="relative px-5 py-2.5 bg-white border-2 border-amber-500 rounded-full shadow-[0_0_25px_-5px_rgba(234,88,12,0.3)] flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+            <i data-lucide="crown" class="w-7 h-7 text-orange-600"></i>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+          </div>
+        </div>
+        <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent via-amber-500/70 to-orange-600"></div>
+      </div>
+
+      <div
+        class="w-14 h-14 rounded-full bg-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-4 border border-amber-400">
+        <i data-lucide="hourglass" class="w-7 h-7"></i>
+      </div>
+      <span class="text-sm text-orange-700 uppercase tracking-widest font-extrabold block mb-6">TIEMPO PARA LA
+        FIESTA</span>
+      <div class="grid grid-cols-4 gap-3 sm:gap-4 font-mono">
+        <div class="bg-white border-2 border-amber-300/80 p-5 rounded-2xl shadow-[0_6px_24px_-4px_rgba(120,53,15,0.1)]">
+          <span id="countdown-days" class="text-3xl sm:text-4xl font-bold text-[#2B140A] block">--</span>
+          <span class="text-xs sm:text-sm text-[#7C5236] uppercase font-bold mt-1 block">Días</span>
+        </div>
+        <div class="bg-white border-2 border-amber-300/80 p-5 rounded-2xl shadow-[0_6px_24px_-4px_rgba(120,53,15,0.1)]">
+          <span id="countdown-hours" class="text-3xl sm:text-4xl font-bold text-[#2B140A] block">--</span>
+          <span class="text-xs sm:text-sm text-[#7C5236] uppercase font-bold mt-1 block">Horas</span>
+        </div>
+        <div class="bg-white border-2 border-amber-300/80 p-5 rounded-2xl shadow-[0_6px_24px_-4px_rgba(120,53,15,0.1)]">
+          <span id="countdown-minutes" class="text-3xl sm:text-4xl font-bold text-[#2B140A] block">--</span>
+          <span class="text-xs sm:text-sm text-[#7C5236] uppercase font-bold mt-1 block">Min</span>
+        </div>
+        <div class="bg-white border-2 border-amber-300/80 p-5 rounded-2xl shadow-[0_6px_24px_-4px_rgba(120,53,15,0.1)]">
+          <span id="countdown-seconds" class="text-3xl sm:text-4xl font-bold text-[#2B140A] block">--</span>
+          <span class="text-xs sm:text-sm text-[#7C5236] uppercase font-bold mt-1 block">Seg</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA FOTOGRÁFICA -->
+    <section class="p-8 sm:p-10">
+      <!-- SEPARADOR PROTAGONISTA -->
+      <div class="relative flex items-center justify-center mb-8">
+        <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/70 to-orange-600"></div>
+        <div class="mx-4 relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-400/30 rounded-full blur-md"></div>
+          <div
+            class="relative px-5 py-2.5 bg-white border-2 border-amber-500 rounded-full shadow-[0_0_25px_-5px_rgba(234,88,12,0.3)] flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+            <i data-lucide="crown" class="w-7 h-7 text-orange-600"></i>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+          </div>
+        </div>
+        <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent via-amber-500/70 to-orange-600"></div>
+      </div>
+
+      <div class="flex items-center justify-between mb-8 reveal">
+        <div>
+          <span class="text-sm text-orange-700 uppercase tracking-widest font-bold block mb-1">Sesión Previa</span>
+          <h3 class="serif text-3xl sm:text-5xl italic text-[#2B140A]">Mis Recuerdos</h3>
+        </div>
+        <span id="galeria-badge"
+          class="text-sm text-orange-700 bg-amber-100 border border-amber-400 px-4 py-2 rounded-full font-mono font-bold">3
+          Fotos</span>
+      </div>
+
+      <!-- Fotografías reales de la carpeta img/ (Otras fotos disponibles: img/_DSC2299.jpg, img/_DSC2334.jpg, img/_DSC2339.jpg) -->
+      <div class="grid grid-cols-2 gap-5">
+        <div class="reveal h-64 sm:h-72 rounded-3xl overflow-hidden border-2 border-amber-300 group shadow-[0_6px_24px_-4px_rgba(120,53,15,0.12)]">
+          <img loading="lazy"
+            src="img/_DSC2317.jpg"
+            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            alt="Foto Britany Altair 1">
+        </div>
+        <div
+          class="reveal delay-100 h-64 sm:h-72 rounded-3xl overflow-hidden border-2 border-amber-300 group shadow-[0_6px_24px_-4px_rgba(120,53,15,0.12)]">
+          <img loading="lazy"
+            src="img/_DSC2351.jpg"
+            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            alt="Foto Britany Altair 2">
+        </div>
+        <div
+          class="reveal col-span-2 h-72 sm:h-80 rounded-3xl overflow-hidden border-2 border-amber-300 group shadow-[0_6px_24px_-4px_rgba(120,53,15,0.12)]">
+          <img loading="lazy"
+            src="img/_DSC2306.jpg"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            alt="Foto Britany Altair 3">
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿DÓNDE & CUÁNDO? -->
+    <section class="p-8 sm:p-10 space-y-6 bg-[#FDF3E3]/75">
+      <!-- SEPARADOR PROTAGONISTA -->
+      <div class="relative flex items-center justify-center mb-8">
+        <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/70 to-orange-600"></div>
+        <div class="mx-4 relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-400/30 rounded-full blur-md"></div>
+          <div
+            class="relative px-5 py-2.5 bg-white border-2 border-amber-500 rounded-full shadow-[0_0_25px_-5px_rgba(234,88,12,0.3)] flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+            <i data-lucide="crown" class="w-7 h-7 text-orange-600"></i>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+          </div>
+        </div>
+        <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent via-amber-500/70 to-orange-600"></div>
+      </div>
+
+      <div class="text-center reveal">
+        <span class="text-sm text-orange-700 uppercase tracking-[0.3em] font-bold block mb-2">Locaciones</span>
+        <h3 class="serif text-4xl sm:text-5xl italic text-[#2B140A]">¿Dónde & Cuándo?</h3>
+      </div>
+
+      <div class="reveal delay-100 bg-white border-2 border-amber-300/80 rounded-3xl p-7 shadow-[0_6px_24px_-4px_rgba(120,53,15,0.1)]">
+        <div class="flex items-center gap-4 mb-4">
+          <div
+            class="w-14 h-14 rounded-2xl bg-amber-100 text-orange-600 flex items-center justify-center shrink-0 border border-amber-400">
+            <i data-lucide="party-popper" class="w-7 h-7 text-orange-600"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-xl text-[#2B140A]">Recepción</h4>
+            <span class="text-base text-orange-700 font-extrabold flex items-center gap-1.5 mt-1">
+              <i data-lucide="clock" class="w-4 h-4"></i> 7:00 PM (19:00 hrs)
+            </span>
+          </div>
+        </div>
+        <p class="text-base text-[#5C3A21] mb-6 leading-relaxed">
+          <strong class="text-[#2B140A] text-lg block mb-1">Salón Bamboo</strong>
+          2a. Oriente Norte 1785, Barrio La Pimienta, C.P. 29034, Tuxtla Gutiérrez, Chis.
+          <span class="block text-sm text-orange-700 font-semibold mt-2">• Sí tiene estacionamiento</span>
+        </p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Salon+Bamboo+2a+Oriente+Norte+1785+Barrio+La+Pimienta+29034+Tuxtla+Gutierrez+Chiapas"
+          target="_blank" rel="noopener noreferrer"
+          class="w-full py-4 bg-[#FFF8EB] hover:bg-amber-100 text-[#2B140A] border-2 border-amber-400 hover:border-orange-500 rounded-2xl text-base font-bold flex items-center justify-center gap-2.5 transition-all btn-interactive">
+          <i data-lucide="map-pin" class="w-5 h-5 text-orange-600"></i> Ver en Google Maps
+        </a>
+      </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section class="reveal p-8 sm:p-10 text-center">
+      <!-- SEPARADOR PROTAGONISTA -->
+      <div class="relative flex items-center justify-center mb-8">
+        <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/70 to-orange-600"></div>
+        <div class="mx-4 relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-400/30 rounded-full blur-md"></div>
+          <div
+            class="relative px-5 py-2.5 bg-white border-2 border-amber-500 rounded-full shadow-[0_0_25px_-5px_rgba(234,88,12,0.3)] flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+            <i data-lucide="crown" class="w-7 h-7 text-orange-600"></i>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+          </div>
+        </div>
+        <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent via-amber-500/70 to-orange-600"></div>
+      </div>
+
+      <div
+        class="w-14 h-14 rounded-full bg-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-4 border border-amber-400">
+        <i data-lucide="sparkles" class="w-7 h-7"></i>
+      </div>
+      <h3 class="serif text-4xl sm:text-5xl italic text-orange-700 mb-3">Dress Code</h3>
+      <span class="text-lg sm:text-xl font-extrabold uppercase tracking-wider block mb-3 text-[#2B140A]">Formal</span>
+      <p class="text-base sm:text-lg text-[#5C3A21] max-w-md mx-auto mb-6 leading-relaxed">
+        Queremos que luzcas increíble para las fotos. Evita el tono celeste (reservado para la
+        festejada).
+      </p>
+
+      <div
+        class="inline-flex justify-center items-center gap-3 text-sm sm:text-base text-[#2B140A] bg-white px-6 py-3 rounded-full border-2 border-amber-400 shadow-sm">
+        <span class="w-4 h-4 rounded-full bg-sky-300 border border-sky-500 inline-block shadow-sm"></span>
+        <span class="font-bold text-orange-800">Color celeste reservado exclusivamente para Britany Altair.</span>
+      </div>
+    </section>
+
+    <!-- MESA DE REGALOS -->
+    <section class="p-8 sm:p-10 bg-[#FDF3E3]/75">
+      <!-- SEPARADOR PROTAGONISTA -->
+      <div class="relative flex items-center justify-center mb-8">
+        <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/70 to-orange-600"></div>
+        <div class="mx-4 relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-400/30 rounded-full blur-md"></div>
+          <div
+            class="relative px-5 py-2.5 bg-white border-2 border-amber-500 rounded-full shadow-[0_0_25px_-5px_rgba(234,88,12,0.3)] flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+            <i data-lucide="crown" class="w-7 h-7 text-orange-600"></i>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+          </div>
+        </div>
+        <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent via-amber-500/70 to-orange-600"></div>
+      </div>
+
+      <div class="text-center mb-8 reveal">
+        <div
+          class="w-14 h-14 rounded-full bg-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-4 border border-amber-400">
+          <i data-lucide="gift" class="w-7 h-7"></i>
+        </div>
+        <h3 class="serif text-4xl sm:text-5xl italic text-orange-700 mb-3">Mesa de Regalos</h3>
+        <p class="text-base sm:text-lg text-[#5C3A21] max-w-md mx-auto">Tu compañía y ganas de bailar son mi mejor
+          regalo, pero si quieres tener un detalle:</p>
+      </div>
+
+      <div class="space-y-5">
+        <div class="reveal delay-100 p-6 bg-white border-2 border-amber-300/80 rounded-3xl text-base shadow-[0_6px_24px_-4px_rgba(120,53,15,0.1)]">
+          <div class="flex items-center gap-3.5 mb-3">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-orange-600 flex items-center justify-center border border-amber-300">
+              <i data-lucide="mail" class="w-6 h-6 text-orange-600"></i>
+            </div>
+            <p class="font-bold text-lg text-[#2B140A]">Lluvia de Sobres</p>
+          </div>
+          <p class="text-base text-[#5C3A21]">Habrá un baúl especial de sobres en la entrada del salón.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE CONFIRMACIÓN -->
+    <section class="p-8 sm:p-10 text-center">
+      <!-- SEPARADOR PROTAGONISTA -->
+      <div class="relative flex items-center justify-center mb-8">
+        <div class="flex-1 h-[2px] bg-gradient-to-r from-transparent via-amber-500/70 to-orange-600"></div>
+        <div class="mx-4 relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-amber-400/30 rounded-full blur-md"></div>
+          <div
+            class="relative px-5 py-2.5 bg-white border-2 border-amber-500 rounded-full shadow-[0_0_25px_-5px_rgba(234,88,12,0.3)] flex items-center gap-2.5">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+            <i data-lucide="crown" class="w-7 h-7 text-orange-600"></i>
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 animate-pulse"></i>
+          </div>
+        </div>
+        <div class="flex-1 h-[2px] bg-gradient-to-l from-transparent via-amber-500/70 to-orange-600"></div>
+      </div>
+
+      <div
+        class="w-14 h-14 rounded-full bg-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-4 border border-amber-400">
+        <i data-lucide="check-circle" class="w-7 h-7"></i>
+      </div>
+
+      <h3 class="serif text-4xl sm:text-5xl italic text-orange-700 mb-3 reveal">¿Vas a ir a la fiesta?</h3>
+      <p class="text-base sm:text-lg text-[#5C3A21] mb-8 reveal font-normal">Por favor confirma antes del 11 de Diciembre
+        de 2026 para apartar tu lugar.</p>
+
+      <div id="rsvpCardContainer"
+        class="reveal bg-white border-2 border-amber-400 rounded-3xl p-7 sm:p-8 text-left space-y-6 shadow-[0_10px_35px_-5px_rgba(217,119,6,0.22)]">
+        <div>
+          <label class="block text-sm font-bold text-orange-700 uppercase tracking-wider mb-2">Nombre o Apellidos</label>
+          <input id="guestName" type="text" placeholder="Ej. Camila & Amigas"
+            class="w-full bg-[#FFFDF9] border border-amber-300 rounded-2xl px-5 py-4 text-base text-[#2B140A] placeholder:text-[#9A7B62] focus:border-orange-500 outline-none" />
+          <p id="guestNameError" class="hidden text-xs text-rose-600 font-semibold mt-1.5 flex items-center gap-1">
+            <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> Ingresa tu nombre para confirmar.
+          </p>
+        </div>
+
+        <div>
+          <label class="block text-sm font-bold text-orange-700 uppercase tracking-wider mb-2">¿Asistirás al
+            Evento?</label>
+          <select id="guestAttendance"
+            class="w-full bg-[#FFFDF9] border border-amber-300 rounded-2xl px-5 py-4 text-base text-[#2B140A] focus:border-orange-500 outline-none">
+            <option value="si">¡Obvio sí, no me lo pierdo por nada!</option>
+            <option value="no">Lo siento, lamentablemente no podré ir!</option>
+          </select>
+        </div>
+
+        <div id="feature-pases">
+          <label class="block text-sm font-bold text-orange-700 uppercase tracking-wider mb-2">Pases Confirmados</label>
+          <select id="guestTickets"
+            class="w-full bg-[#FFFDF9] border border-amber-300 rounded-2xl px-5 py-4 text-base text-[#2B140A] focus:border-orange-500 outline-none">
+            <!-- Rellenado dinámicamente por JS -->
+          </select>
+        </div>
+
+        <button id="sendWhatsAppRSVP"
+          class="w-full py-4 sm:py-5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl text-base sm:text-lg font-bold flex items-center justify-center gap-3 shadow-lg btn-shimmer btn-interactive btn-pulse-emerald">
+          <i data-lucide="message-circle" class="w-6 h-6"></i> Confirmar Asistencia por WhatsApp
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CONFIGURACIÓN DEL CLIENTE Y MOTOR COMPARTIDO -->
+  <script src="js/config.js"></script>
+  <script src="../../shared/js/invitation-core.js"></script>
+
+  <!-- ========================================== -->
+  <!-- MARCA DE AGUA FIJA (VISTA PREVIA)          -->
+  <!-- ========================================== -->
+  <div id="previewWatermark" class="preview-watermark-container" aria-hidden="true">
+    <div class="preview-watermark-pattern">
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+      <span class="preview-watermark-text">INDIIN - VISTA PREVIA</span>
+    </div>
+  </div>
+
+  <!-- TOAST / MODAL DE AVISO DE VISTA PREVIA -->
+  <div id="previewRsvpToast"
+    class="fixed bottom-6 inset-x-4 max-w-md mx-auto z-[10000] hidden opacity-0 translate-y-3 transition-all duration-300 pointer-events-auto">
+    <div
+      class="bg-[#2B140A] text-[#FFFDF9] border-2 border-amber-400 rounded-2xl p-4 sm:p-5 shadow-2xl flex items-start gap-3.5">
+      <div
+        class="w-9 h-9 rounded-full bg-amber-400/20 border border-amber-400 text-amber-300 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+        !
+      </div>
+      <div class="flex-1 text-left">
+        <p class="text-xs uppercase tracking-widest text-amber-300 font-bold mb-0.5">Modo Borrador</p>
+        <p class="text-sm sm:text-base font-medium leading-snug">
+          Vista previa: La confirmación de asistencia estará activa en la versión final.
+        </p>
+      </div>
+      <button type="button" id="closePreviewToastBtn"
+        class="text-amber-200/80 hover:text-white text-lg font-bold leading-none px-1.5 py-0.5 cursor-pointer"
+        aria-label="Cerrar aviso">
+        &times;
+      </button>
+    </div>
+  </div>
+
+  <!-- PROTECCIÓN DE BOTONES DE CONFIRMACIÓN (RSVP / WHATSAPP) -->
+  <script>
+    (function () {
+      var PREVIEW_MSG = 'Vista previa: La confirmación de asistencia estará activa en la versión final.';
+      var toastEl = document.getElementById('previewRsvpToast');
+      var closeBtn = document.getElementById('closePreviewToastBtn');
+      var toastTimer = null;
+
+      function showPreviewNotice() {
+        if (!toastEl) {
+          alert(PREVIEW_MSG);
+          return;
+        }
+        toastEl.classList.remove('hidden');
+        requestAnimationFrame(function () {
+          toastEl.classList.remove('opacity-0', 'translate-y-3');
+          toastEl.classList.add('opacity-100', 'translate-y-0');
+        });
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(hidePreviewNotice, 4500);
+      }
+
+      function hidePreviewNotice() {
+        if (!toastEl) return;
+        toastEl.classList.remove('opacity-100', 'translate-y-0');
+        toastEl.classList.add('opacity-0', 'translate-y-3');
+        setTimeout(function () {
+          toastEl.classList.add('hidden');
+        }, 300);
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          hidePreviewNotice();
+        });
+      }
+
+      var rsvpSelector = [
+        'a[href*="wa.me"]',
+        'a[href*="whatsapp.com"]',
+        '#sendWhatsAppRSVP',
+        'button[id*="rsvp" i]',
+        'a[id*="rsvp" i]',
+        'button[class*="rsvp" i]',
+        'a[class*="rsvp" i]',
+        'button[id*="confirm" i]',
+        'a[id*="confirm" i]',
+        'button[class*="confirm" i]',
+        'a[class*="confirm" i]',
+        '#rsvpCardContainer button',
+        '#rsvpCardContainer a',
+        '#rsvpCardContainer input[type="submit"]'
+      ].join(', ');
+
+      function isConfirmationTrigger(target) {
+        if (!target || typeof target.closest !== 'function') return false;
+        var matched = target.closest(rsvpSelector);
+        if (matched) return true;
+
+        var actionable = target.closest('button, a, input[type="submit"]');
+        if (!actionable || actionable.id === 'closePreviewToastBtn') return false;
+        var text = (actionable.textContent || actionable.value || '').toLowerCase();
+        return text.indexOf('confirmar asistencia') !== -1 || text.indexOf('whatsapp') !== -1;
+      }
+
+      window.addEventListener('click', function (e) {
+        if (isConfirmationTrigger(e.target)) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          showPreviewNotice();
+        }
+      }, true);
+
+      window.addEventListener('submit', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        showPreviewNotice();
+      }, true);
+    })();
+  </script>
+</body>
+
+</html>
